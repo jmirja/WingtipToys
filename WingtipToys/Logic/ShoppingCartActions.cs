@@ -46,15 +46,6 @@ namespace WingtipToys.Logic
             _db.SaveChanges();
         }
 
-        public void Dispose()
-        {
-            if (_db != null)
-            {
-                _db.Dispose();
-                _db = null;
-            }
-        }
-
         public string GetCartId()
         {
             if (HttpContext.Current.Session[CartSessionKey] == null)
@@ -79,6 +70,29 @@ namespace WingtipToys.Logic
 
             return _db.ShoppingCartItems.Where(
                 c => c.CartId == ShoppingCartId).ToList();
+        }
+
+        public decimal GetTotal()
+        {
+            ShoppingCartId = GetCartId();
+            // Multiply product price by quantity of that product to get        
+            // the current price for each of those products in the cart.  
+            // Sum all product price totals to get the cart total.   
+            decimal? total = decimal.Zero;
+            total = (decimal?)(from cartItems in _db.ShoppingCartItems
+                               where cartItems.CartId == ShoppingCartId
+                               select (int?)cartItems.Quantity *
+                               cartItems.Product.UnitPrice).Sum();
+            return total ?? decimal.Zero;
+        }
+
+        public void Dispose()
+        {
+            if (_db != null)
+            {
+                _db.Dispose();
+                _db = null;
+            }
         }
     }
 }
