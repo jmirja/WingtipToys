@@ -37,7 +37,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+       <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -80,7 +80,7 @@
             </a>  
             <br />  
         </div>
-        <div id="CategoryMenu" style="text-align: center">       
+       <div id="CategoryMenu" style="text-align: center">       
             <asp:ListView ID="categoryList"  
                 ItemType="WingtipToys.Models.Category" 
                 runat="server"
