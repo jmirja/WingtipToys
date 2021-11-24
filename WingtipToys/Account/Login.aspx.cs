@@ -4,6 +4,7 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
+using WingtipToys.Logic;
 using WingtipToys.Models;
 
 namespace WingtipToys.Account
@@ -38,7 +39,8 @@ namespace WingtipToys.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        WingtipToys.Logic.ShoppingCartActions usersShoppingCart = new WingtipToys.Logic.ShoppingCartActions();
+                       
+                        ShoppingCartActions usersShoppingCart = new ShoppingCartActions();
                         String cartId = usersShoppingCart.GetCartId();
                         usersShoppingCart.MigrateCart(cartId, Email.Text);
 
