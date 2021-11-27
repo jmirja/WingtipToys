@@ -60,8 +60,7 @@ namespace WingtipToys.Checkout
                     }
 
                     // Clear shopping cart.
-                    using (WingtipToys.Logic.ShoppingCartActions usersShoppingCart =
-                        new WingtipToys.Logic.ShoppingCartActions())
+                    using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
                     {
                         usersShoppingCart.EmptyCart();
                     }

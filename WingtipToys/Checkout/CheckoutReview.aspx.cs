@@ -64,7 +64,7 @@ namespace WingtipToys.Checkout
                     _db.SaveChanges();
 
                     // Get the shopping cart items and process them.
-                    using (WingtipToys.Logic.ShoppingCartActions usersShoppingCart = new WingtipToys.Logic.ShoppingCartActions())
+                    using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
                     {
                         List<CartItem> myOrderList = usersShoppingCart.GetCartItems();
 
