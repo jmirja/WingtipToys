@@ -8,7 +8,7 @@ using System.Data.Entity;
 using WingtipToys.Models;
 using System.Web.Security;
 using System.Web.SessionState;
-
+using WingtipToys.Logic;
 
 namespace WingtipToys
 {
@@ -20,7 +20,11 @@ namespace WingtipToys
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer(new ProductDatabaseInitializer());     
+            Database.SetInitializer(new ProductDatabaseInitializer());
+
+            // Create the custom role and user.
+            RoleActions roleActions = new RoleActions();
+            roleActions.AddUserAndRole();
         }
     }
 }

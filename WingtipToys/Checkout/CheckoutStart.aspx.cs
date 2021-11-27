@@ -24,7 +24,7 @@ namespace WingtipToys.Checkout
                 if (ret)
                 {
                     Session["token"] = token;
-                    Response.Redirect(retMsg);
+                    Response.Redirect(retMsg); // after this line end , program enters to the paypal ground
                 }
                 else
                 {
