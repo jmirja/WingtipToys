@@ -29,18 +29,26 @@
                         <table>
                             <tr>
                                 <td>
-                                    <a href="ProductDetails.aspx?productID=<%#:Item.ProductID%>">
+<%--                                    <a href="ProductDetails.aspx?productID=<%#:Item.ProductID%>">
                                         <img src="/Catalog/Images/Thumbs/<%#:Item.ImagePath%>"
                                             width="100" height="75" style="border: solid" />
-                                    </a>
+                                    </a>--%>
+
+                                    <a href="<%#: GetRouteUrl("ProductByNameRoute", new {productName = Item.ProductName}) %>">
+                                          <image src='/Catalog/Images/Thumbs/<%#:Item.ImagePath%>' width="100" height="75" border="1" />
+                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="ProductDetails.aspx?productID=<%#:Item.ProductID%>">
+<%--                                    <a href="ProductDetails.aspx?productID=<%#:Item.ProductID%>">
                                         <span>
                                             <%#:Item.ProductName%>
                                         </span>
+                                    </a>--%>
+
+                                    <a href="<%#: GetRouteUrl("ProductByNameRoute", new {productName = Item.ProductName}) %>">
+                                         <%#:Item.ProductName%>
                                     </a>
                                     <br />
                                     <span>
